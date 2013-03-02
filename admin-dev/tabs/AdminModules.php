@@ -647,10 +647,12 @@ class AdminModules extends AdminTab
 			'.$this->l('Add a module from my computer').'
 		</span>
 		&nbsp;|&nbsp;';
-		echo '<a href="index.php?tab=AdminAddonsMyAccount&token='.Tools::getAdminTokenLite('AdminAddonsMyAccount').'">
-			<img src="https://addons.prestashop.com/modules.php?'.(isset($_SERVER['SERVER_ADDR']) ? 'server='.ip2long($_SERVER['SERVER_ADDR']).'&' : '').'mods='.$serialModules.'" alt="Add" class="middle" />
-			'.$this->l('Add a module from PrestaShop Addons').'
-		</a>';
+		// BEGIN - prestaclean EDITION
+//		echo '<a href="index.php?tab=AdminAddonsMyAccount&token='.Tools::getAdminTokenLite('AdminAddonsMyAccount').'">m
+//			<img src="https://addons.prestashop.com/modules.php?'.(isset($_SERVER['SERVER_ADDR']) ? 'server='.ip2long($_SERVER['SERVER_ADDR']).'&' : '').'mods='.$serialModules.'" alt="Add" class="middle" />
+//			'.$this->l('Add a module from PrestaShop Addons').'
+//		</a>';
+// END - prestaclean EDITION
 		echo '<form action="'.$currentIndex.'&token='.$this->token.'" method="post" id="filternameForm" style="float:right"><input type="text" name="filtername" value="'.Tools::htmlentitiesUTF8(Tools::getValue('filtername')).'" /> <input type="submit" value="'.$this->l('Search').'" class="button" /></form>
 		<div class="clear">&nbsp;</div>
 		<div id="module_install" style="width:900px; '.((Tools::isSubmit('submitDownload') OR Tools::isSubmit('submitDownload2')) ? '' : 'display: none;').'">

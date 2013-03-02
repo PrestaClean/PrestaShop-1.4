@@ -6,7 +6,10 @@ class KControl extends XMLElement {
      */
 
     public function __construct() {
-        parent::__construct("<control fianetmodule='api_prestashop_kwixo' version='4.1'></control>");
+// BEGIN - prestaclean EDITION
+        parent::__construct("<control fianetmodule='clean_presta' version='4.1'></control>");
+//        parent::__construct("<control fianetmodule='api_prestashop_kwixo' version='4.1'></control>");
+// END - prestaclean EDITION
     }
 
     /**

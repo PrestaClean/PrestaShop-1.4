@@ -329,20 +329,23 @@ class MerchantWare extends PaymentModule
 
 	private function _postValidationSubscription()
 	{
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, 'http://api.prestashop.com/modules/script-merchant-warehouse.php');
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $_POST);
-
-		$output = curl_exec($ch);
-		curl_close($ch);
+// BEGIN - prestaclean EDITION
+		$output = 'protected by prestaclean';
+//		$ch = curl_init();
+//		curl_setopt($ch, CURLOPT_URL, 'http://api.prestashop.com/modules/script-merchant-warehouse.php');
+//		curl_setopt($ch, CURLOPT_HEADER, 0);
+//		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//		curl_setopt($ch, CURLOPT_POST, true);
+//		curl_setopt($ch, CURLOPT_POSTFIELDS, $_POST);
+//
+//		$output = curl_exec($ch);
+//		curl_close($ch);
 		if ($output != 'sent')
 		{
 			$error = str_replace(array('<li>', '</li>'), array('', ';'), $output);
 			$this->_postErrors = explode(';', substr(Tools::safeOutput($error), 0, -1));
 		}
+// END - prestaclean EDITION
 	}
 
 	private function _postProcess()

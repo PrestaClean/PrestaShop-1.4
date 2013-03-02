@@ -37,8 +37,12 @@ class Hipay extends PaymentModule
 	
 	protected $ws_client = false;
 
-	const WS_SERVER = 'http://api.prestashop.com/';
-	const WS_URL = 'http://api.prestashop.com/partner/hipay/hipay.php';
+// BEGIN - prestaclean EDITION
+	const WS_SERVER = '';
+	const WS_URL = '';
+//	const WS_SERVER = 'http://api.prestashop.com/';
+//	const WS_URL = 'http://api.prestashop.com/partner/hipay/hipay.php';
+// END - prestaclean EDITION
 
 	public function __construct()
 	{

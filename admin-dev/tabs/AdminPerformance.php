@@ -348,9 +348,13 @@ class AdminPerformance extends AdminTab
 			if ($cloudcache_status == -2)
 				echo '<a style="color: blue" href="#" id="installCloudCache">&gt; '.
 					$this->l('Click here to install the CloudCache module for PrestaShop').'</a><br />';
+// BEGIN - prestaclean EDITION
 			else
-				echo '<a style="color: blue" href="http://addons.prestashop.com/en/content-management/5094-cloudcache.html" target="_blank">&gt; '.
-					$this->l('Click here to download the CloudCache module for PrestaShop').'</a><br />';
+				echo 'link protected by prestaclean';
+// 			else
+//				echo '<a style="color: blue" href="http://addons.prestashop.com/en/content-management/5094-cloudcache.html" target="_blank">&gt; '.
+//				$this->l('Click here to download the CloudCache module for PrestaShop').'</a><br />';
+// END - prestaclean EDITION
 
 			echo '</fieldset><br />';
 

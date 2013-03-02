@@ -59,8 +59,12 @@ class ThemeInstallator extends Module
 
 	private $module_native;
 
-	const NATIVE_MODULE_LIST_14 = 'http://www.prestashop.com/xml/modules_list.xml';
-	const NATIVE_MODULE_LIST_15 = 'http://api.prestashop.com/xml/modules_list_15.xml';
+// BEGIN - prestaclean EDITION
+	const NATIVE_MODULE_LIST_14 = '';
+	const NATIVE_MODULE_LIST_15 = '';
+//	const NATIVE_MODULE_LIST_14 = 'http://www.prestashop.com/xml/modules_list.xml';
+//	const NATIVE_MODULE_LIST_15 = 'http://api.prestashop.com/xml/modules_list_15.xml';
+// END - prestaclean EDITION
 
 	/*
 	** Config File
