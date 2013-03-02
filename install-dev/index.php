@@ -1014,12 +1014,18 @@ if ($lm->getIncludeTradFilename())
 				<div id="resultEnd"></div>
 			</div>
 			<?php
-			if (@fsockopen('addons.prestashop.com', 80, $errno, $errst, 3)): ?>
-			<iframe src="http://addons.prestashop.com/psinstall.php?lang=<?php echo $lm->getIsoCodeSelectedLang()?>" scrolling="no" id="prestastore">
-				<p>Your browser does not support iframes.</p>
-			</iframe>
-			<?php
-			endif; ?>
+// BEGIN - prestaclean EDITION
+			echo 'Page protected by prestaclean';
+/*
+// 			if (@fsockopen('addons.prestashop.com', 80, $errno, $errst, 3)): ?>
+// 			<iframe src="http://addons.prestashop.com/psinstall.php?lang=<?php echo $lm->getIsoCodeSelectedLang()?>" scrolling="no" id="prestastore">
+// 				<p>Your browser does not support iframes.</p>
+// 			</iframe>
+// 			<?php
+// 				endif;
+*/
+// END - prestaclean EDITION
+			?>
 
 		</div>
 
@@ -1330,12 +1336,17 @@ if ($lm->getIncludeTradFilename())
 				</div>
 			</div>
 			<?php
-			if (@fsockopen('addons.prestashop.com', 80, $errno, $errst, 3)): ?>
-			<iframe src="http://addons.prestashop.com/psinstall.php" scrolling="no" id="prestastore_update">
-				<p>Your browser does not support iframes.</p>
-			</iframe>
-			<?php
-			endif;
+// BEGIN - prestaclean EDITION
+			echo 'Page protected by prestaclean';
+/*
+//			if (@fsockopen('addons.prestashop.com', 80, $errno, $errst, 3)): ?>
+//			<iframe src="http://addons.prestashop.com/psinstall.php" scrolling="no" id="prestastore_update">
+//				<p>Your browser does not support iframes.</p>
+//			</iframe>
+//			<?php
+//			endif;
+*/
+// END - prestaclean EDITION
 			?>
 		</div>
 

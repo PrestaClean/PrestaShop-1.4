@@ -39,7 +39,9 @@ if (isset($_GET['installBoughtModule']))
 	while ($file === false OR file_exists(_PS_MODULE_DIR_.$file))
 		$file = uniqid();
 	$file = _PS_MODULE_DIR_.$file.'.zip';
-	$sourceFile = 'http://addons.prestashop.com/iframe/getboughtfile.php?id_order_detail='.Tools::getValue('id_order_detail').'&token='.Tools::getValue('token');
+// BEGIN - prestaclean edition
+		$sourceFile = 'protected by prestaclean';
+// 	$sourceFile = 'http://addons.prestashop.com/iframe/getboughtfile.php?id_order_detail='.Tools::getValue('id_order_detail').'&token='.Tools::getValue('token');
 	if (!copy($sourceFile, $file))
 	{
 		if (!($content = file_get_contents($sourceFile)))
@@ -47,6 +49,7 @@ if (isset($_GET['installBoughtModule']))
 		elseif (!file_put_contents($file, $content))
 			die(displayJavascriptAlert('Local error: your module directory is not writable'));
 	}
+// END - prestaclean edition
 	$first6 = fread($fd = fopen($file, 'r'), 6);
 	if (!strncmp($first6, 'Error:', 6))
 	{
@@ -163,10 +166,12 @@ if (isset($_GET['ajaxDiscountCustomers']))
 	die($json);
 }
 
-if (Tools::getValue('page') == 'prestastore' AND @fsockopen('addons.prestashop.com', 80, $errno, $errst, 3))
-	readfile('http://addons.prestashop.com/adminmodules.php?lang='.Language::getIsoById($cookie->id_lang));
-if (Tools::getValue('page') == 'themes'  AND @fsockopen('addons.prestashop.com', 80, $errno, $errst, 3))
-	readfile('http://addons.prestashop.com/adminthemes.php?lang='.Language::getIsoById($cookie->id_lang));
+// BEGIN - prestaclean edition
+// if (Tools::getValue('page') == 'prestastore' AND @fsockopen('addons.prestashop.com', 80, $errno, $errst, 3))
+// 	readfile('http://addons.prestashop.com/adminmodules.php?lang='.Language::getIsoById($cookie->id_lang));
+// if (Tools::getValue('page') == 'themes'  AND @fsockopen('addons.prestashop.com', 80, $errno, $errst, 3))
+//	readfile('http://addons.prestashop.com/adminthemes.php?lang='.Language::getIsoById($cookie->id_lang));
+// END - prestaclean edition
 
 if ($step = (int)(Tools::getValue('ajaxProductTab')))
 {

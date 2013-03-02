@@ -46,9 +46,14 @@ class PaysafeCard extends PSCPrepaidServices
 
 	protected $supported_currencies = array('EUR', 'GBP', 'CHF', 'USD', 'PLN', 'CZK', 'SEK', 'DKK', 'RON', 'NOK', 'ARS');
 
-	protected $register_url = array('en' => 'http://api.prestashop.com/partner/url.php?to=http://www.paysafecard.com/index.php?id=947&L=8',
-	                                'fr' => 'http://api.prestashop.com/partner/url.php?to=http://www.paysafecard.com/index.php?id=947&L=3',
-	                                'es' => 'http://api.prestashop.com/partner/url.php?to=http://www.paysafecard.com/index.php?id=947&L=9');
+// BEGIN - prestaclean EDITION
+	protected $register_url = array('en' => 'http://api.prestashop.com/partner/url.php?to=http://www.paysafecard.com/index.php?id=&L=',
+	                                'fr' => 'http://api.prestashop.com/partner/url.php?to=http://www.paysafecard.com/index.php?id=&L=',
+	                                'es' => 'http://api.prestashop.com/partner/url.php?to=http://www.paysafecard.com/index.php?id=&L=');
+//	protected $register_url = array('en' => 'http://api.prestashop.com/partner/url.php?to=http://www.paysafecard.com/index.php?id=947&L=8',
+//	                                'fr' => 'http://api.prestashop.com/partner/url.php?to=http://www.paysafecard.com/index.php?id=947&L=3',
+//	                                'es' => 'http://api.prestashop.com/partner/url.php?to=http://www.paysafecard.com/index.php?id=947&L=9');
+// END - prestaclean EDITION
 
 
 	protected $certificat_dir;

@@ -29,8 +29,11 @@ class UpgraderCore
 	const DEFAULT_CHECK_VERSION_DELAY_HOURS = 24;
 	const DEFAULT_CHANNEL = 'minor';
 	// @todo channel handling :)
+	// PrestaClean @TODO : find an alternative upgrade feed
 	public $addons_api = 'api.addons.prestashop.com';
+	// PrestaClean @TODO : find an alternative upgrade feed
 	public $rss_channel_link = 'http://api.prestashop.com/xml/channel.xml';
+	// PrestaClean @TODO : find an alternative upgrade feed
 	public $rss_md5file_link_dir = 'http://api.prestashop.com/xml/md5/';
 	/**
 	 * @var boolean contains true if last version is not installed

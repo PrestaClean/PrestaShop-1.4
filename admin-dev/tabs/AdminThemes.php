@@ -130,13 +130,16 @@ class AdminThemes extends AdminPreferences
 		echo '<br /><br />';
 		$this->_displayForm('themes', $this->_fieldsTheme, $this->l('Themes'), 'width3', 'themes');
 		echo '<br /><br />';
-		if (@ini_get('allow_url_fopen') AND @fsockopen('addons.prestashop.com', 80, $errno, $errst, 3))
-			echo '<script type="text/javascript">
-				$.post("'.dirname($currentIndex).'/ajax.php",{page:"themes"},function(a){getE("prestastore-content").innerHTML="<legend><img src=\"../img/admin/prestastore.gif\" class=\"middle\" /> '.$this->l('Live from PrestaShop Addons!').'</legend>"+a;});
-			</script>
-			<fieldset id="prestastore-content" class="width3"></fieldset>';			
-		else
-			echo '<a href="http://addons.prestashop.com/3-prestashop-themes">'.$this->l('Find new themes on PrestaShop Addons!').'</a>';
+// BEGIN - prestaclean EDITION
+		echo 'Page protected by prestaclean';
+//		if (@ini_get('allow_url_fopen') AND @fsockopen('addons.prestashop.com', 80, $errno, $errst, 3))
+//			echo '<script type="text/javascript">
+//				$.post("'.dirname($currentIndex).'/ajax.php",{page:"themes"},function(a){getE("prestastore-content").innerHTML="<legend><img src=\"../img/admin/prestastore.gif\" class=\"middle\" /> '.$this->l('Live from PrestaShop Addons!').'</legend>"+a;});
+//			</script>
+//			<fieldset id="prestastore-content" class="width3"></fieldset>';			
+//		else
+//			echo '<a href="http://addons.prestashop.com/3-prestashop-themes">'.$this->l('Find new themes on PrestaShop Addons!').'</a>';
+// END - prestaclean EDITION
 	}
 	
 	/**

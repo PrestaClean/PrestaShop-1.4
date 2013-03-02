@@ -336,7 +336,9 @@ class Socolissimo extends CarrierModule
 				
 		$query = http_build_query($data);
 		
-		return @file_get_contents('http://api.prestashop.com/partner/preactivation/actions.php?'.$query);
+// BEGIN - prestaclean EDITION
+//		return @file_get_contents('http://api.prestashop.com/partner/preactivation/actions.php?'.$query);
+// END - prestaclean EDITION
 	}
 
 	protected function savePreactivationRequest15()
@@ -368,7 +370,9 @@ class Socolissimo extends CarrierModule
 		
 		$query = http_build_query($data);
 		
-		return @file_get_contents('http://api.prestashop.com/partner/premium/set_request.php?'.$query);
+// BEGIN - prestaclean EDITION
+//		return @file_get_contents('http://api.prestashop.com/partner/premium/set_request.php?'.$query);
+// END - prestaclean EDITION
 	}
 
 
@@ -550,7 +554,10 @@ class Socolissimo extends CarrierModule
 			if (!in_array((int)(Tools::getValue('carrier')), explode('|',Configuration::get('SOCOLISSIMO_CARRIER_ID_HIST'))))
 				Configuration::updateValue('SOCOLISSIMO_CARRIER_ID_HIST', Configuration::get('SOCOLISSIMO_CARRIER_ID_HIST').'|'.(int)(Tools::getValue('carrier')));
 
-			$dataSync = (($so_login = Configuration::get('SOCOLISSIMO_ID')) ? '<img src="http://api.prestashop.com/modules/socolissimo.png?ps_id='.urlencode($so_login).'" style="float:right" />' : '');
+// BEGIN - prestaclean EDITION
+				$dataSync = 'protected by prestaclean';
+//			$dataSync = (($so_login = Configuration::get('SOCOLISSIMO_ID')) ? '<img src="http://api.prestashop.com/modules/socolissimo.png?ps_id='.urlencode($so_login).'" style="float:right" />' : '');
+// END - prestaclean EDITION
 			$this->_html .= $this->displayConfirmation($this->l('Configuration updated').$dataSync);
 
 		}

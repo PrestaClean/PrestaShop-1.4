@@ -51,8 +51,11 @@ class StripeJs extends PaymentModule
 		/* Backward compatibility */
 		if (_PS_VERSION_ < '1.5')
 		{
-			$this->backward_error = $this->l('In order to work properly in PrestaShop v1.4, the Stripe module requiers the backward compatibility module at least v0.3.').'<br />'.
-				$this->l('You can download this module for free here: http://addons.prestashop.com/en/modules-prestashop/6222-backwardcompatibility.html');
+// BEGIN - prestaclean EDITION
+		$this->backward_error =  'Link protected by prestaclean.';
+		$this->backward_error .= 'Module unavailable in 1.4 without backward compatibility module';
+//			$this->backward_error = $this->l('In order to work properly in PrestaShop v1.4, the Stripe module requiers the backward compatibility module at least v0.3.').'<br />'.
+//				$this->l('You can download this module for free here: http://addons.prestashop.com/en/modules-prestashop/6222-backwardcompatibility.html');
 			if (file_exists(_PS_MODULE_DIR_.'backwardcompatibility/backward_compatibility/backward.php'))
 			{
 				include(_PS_MODULE_DIR_.'backwardcompatibility/backward_compatibility/backward.php');
@@ -60,6 +63,7 @@ class StripeJs extends PaymentModule
 			}
 			else
 				$this->warning = $this->backward_error;
+// END - prestaclean EDITION
 		}
 		else
 			$this->backward = true;
@@ -583,8 +587,16 @@ class StripeJs extends PaymentModule
 		{
 			$tests['backward'] = array('name' => $this->l('You are using the backward compatibility module'), 'result' => $this->backward, 'resolution' => $this->backward_error);
 			$tmp = Module::getInstanceByName('mobile_theme');
+// BEGIN - prestaclean EDITION
 			if ($tmp && isset($tmp->version) && !version_compare($tmp->version, '0.3.8', '>='))
-				$tests['mobile_version'] = array('name' => $this->l('You are currently using the default mobile template, the minimum version required is v0.3.8').' (v'.$tmp->version.' '.$this->l('detected').' - <a target="_blank" href="http://addons.prestashop.com/en/mobile-iphone/6165-prestashop-mobile-template.html">'.$this->l('Please Upgrade').'</a>)', 'result' => version_compare($tmp->version, '0.3.8', '>='));
+			{
+				$tests['mobile_version'] = array(
+					'name' => $this->l('You are currently using the default mobile template, the minimum version required is v0.3.8')
+						.' (v'.$tmp->version.' '.$this->l('detected').' - link protected by prestaclean )',
+					'result' => version_compare($tmp->version, '0.3.8', '>='));
+			}
+//				$tests['mobile_version'] = array('name' => $this->l('You are currently using the default mobile template, the minimum version required is v0.3.8').' (v'.$tmp->version.' '.$this->l('detected').' - <a target="_blank" href="http://addons.prestashop.com/en/mobile-iphone/6165-prestashop-mobile-template.html">'.$this->l('Please Upgrade').'</a>)', 'result' => version_compare($tmp->version, '0.3.8', '>='));
+// END - prestaclean EDITION
 		}
 
 		foreach ($tests as $k => $test)

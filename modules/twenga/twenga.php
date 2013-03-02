@@ -204,8 +204,10 @@ class Twenga extends PaymentModule
 	{	
 		if (isset($_POST) && isset($_POST['type']) && isset($_POST['base']))
 		{
-			$link = 'http://addons.prestashop.com/'.Language::getIsoById($_POST['id_lang']).
-				'/2053-twenga-ready-to-sell.html';
+// BEGIN - prestaclean EDITION
+//			$link = 'http://addons.prestashop.com/'.Language::getIsoById($_POST['id_lang']).'/2053-twenga-ready-to-sell.html';
+			$link = 'Link protected by prestaclean';
+// END - prestaclean EDITION
 
 			$type = (($_POST['type'] == 'desactive') ? $this->l('Disable') : 
 				(($_POST['type'] == 'reset') ? $this->l('Reset') : 
